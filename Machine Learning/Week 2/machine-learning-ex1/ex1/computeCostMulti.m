@@ -15,6 +15,16 @@ J = 0;
 
 
 
+X_extended = [ones(size(X, 1), 1) X];
+
+n = columns(X_extended);
+
+for i=1:n
+  
+  J(i) = (1/(2*m))*((X_extended(i)-y)')*(X_extended(i)-y)
+  
+end
+
 
 
 % =========================================================================
