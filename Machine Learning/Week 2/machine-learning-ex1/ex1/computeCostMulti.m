@@ -14,16 +14,10 @@ J = 0;
 %               You should set J to the cost.
 
 
+predictions = X*theta;              % predictions of hypothesis on examples
+sqrErrors   = (predictions - y).^2; % squared errors
 
-X_extended = [ones(size(X, 1), 1) X];
-
-n = columns(X_extended);
-
-for i=1:n
-  
-  J(i) = (1/(2*m))*((X_extended(i)-y)')*(X_extended(i)-y)
-  
-end
+J = 1/(2*m) * sum(sqrErrors);
 
 
 
