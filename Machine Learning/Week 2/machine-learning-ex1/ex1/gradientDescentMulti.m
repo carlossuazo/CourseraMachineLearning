@@ -17,20 +17,35 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
+    % Perform a single gradient step on the parameter vector theta. 
 
+    % we minimize the value of J(theta) by changing the values of the 
+    % vector theta NOT changing X or y
 
+    % alpha = learning rate as a single number
 
+    % hypothesis = mx1 column vector
+    % X = mxn matrix
+    % theta = nx1 column vector
+    hypothesis = X * theta;
 
+    % errors = mx1 column vector
+    % y = mx1 column vector
+    errors = hypothesis .- y;
 
+    newiteration = (alpha * (1/m) * errors' * X); 
+    
+    theta = theta - newiteration';
 
-
+    % Save the cost J in every iteration    
+    J_history(iteration) = computeCostMulti(X, y, theta);
 
 
 
     % ============================================================
 
     % Save the cost J in every iteration    
-    %J_history(iter) = computeCostMulti(X, y, theta);
+    J_history(iter) = computeCostMulti(X, y, theta);
 
 end
 
